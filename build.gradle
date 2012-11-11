@@ -58,14 +58,18 @@ configure(subprojects.findAll {it.name != 'cnf'}) {
     jar.dependsOn bundle
     
     // copy bnd build bundle to libs directory (workaround)
-    project.tasks.jar {
-         doLast() {
-            copy {
-                from "${projectDir}/build/bundle"
-                into "${projectDir}/build/libs"
-                include '*.jar'
-            }
-         }
+    jar.doFirst {
+        FileTree bundleDirectory = fileTree(dir: "${projectDir}/build/bundles", include: '*.jar')
+        jar {
+            from { bundleDirectory.collect { it.isDirectory() ? it : zipTree(it) } }
+        }
+    }
+    jar.doLast {
+        copy {
+            from "${projectDir}/build/bundle"
+            into "${projectDir}/build/libs"
+            include '*.jar'
+        }
     }
     
     // Run the bundle tests by the bnd ant task (integrated OSGi tests)
