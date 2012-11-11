@@ -35,3 +35,13 @@ or
     gradle eclipse
 
 After generating the eclipse project settings the bndtools project be imported in eclipse.
+
+## Release Bundle to release Repository
+
+To release bundles to the release repository invoke:
+    
+    gradlew releaseBundle
+    
+or
+
+    gradle releaseBundle
