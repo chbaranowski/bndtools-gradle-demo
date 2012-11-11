@@ -1,0 +1,5 @@
+Service-Component: *
+Import-Package: !javax.annotation,\
+	*
+Export-Package: facilis.echo,\
+	com.google.common.base
