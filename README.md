@@ -10,7 +10,7 @@ To build the project invoke:
 
     gradlew build
     
-    or
+or
     
     gradle build
     
@@ -20,7 +20,7 @@ To run the OSGi bundle tests invoke:
 
     gradlew testBundle
     
-    or
+or
     
     gradle testBundle
 
@@ -30,7 +30,7 @@ To generate the eclipse project settings invoke:
 
     gradlew eclipse
     
-    or 
+or 
     
     gradle eclipse
 
