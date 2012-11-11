@@ -1,0 +1,9 @@
+Test-Cases: ${classes;CONCRETE;EXTENDS;junit.framework.TestCase}
+Private-Package: facilis.echo.test
+-runfw: org.eclipse.osgi;version='3.7.2'
+-runee: JavaSE-1.6
+-runvm: -ea
+-runsystempackages: sun.reflect
+-runbundles: facilis.demo.core;version=latest,\
+    org.apache.felix.scr,\
+    osgi.cmpn;version=4.3.0

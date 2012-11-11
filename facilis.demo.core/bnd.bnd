@@ -1,0 +1,15 @@
+-runfw: org.eclipse.osgi;version='3.7.0'
+-runee: JavaSE-1.6
+-runproperties: osgi.console=true
+Private-Package: facilis.echo.sysout
+-buildpath: biz.aQute.bnd.annotation;version=1.52.3,\
+	com.google.guava;version=13.0.1
+Export-Package: facilis.echo,\
+	com.google.common.base
+Service-Component: *
+-runrequires: osgi.identity;filter:='(osgi.identity=org.apache.felix.scr)',\
+	osgi.identity;filter:='(&(osgi.identity=osgi.cmpn)(version>=4.2.0))'
+-runbundles: org.apache.felix.scr;version='[1.6.0,1.6.1)',\
+	osgi.cmpn;version='[4.2.0,4.2.1)'
+Import-Package: !javax.annotation,\
+	*
