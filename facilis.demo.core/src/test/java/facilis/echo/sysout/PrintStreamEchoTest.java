@@ -1,6 +1,5 @@
 package facilis.echo.sysout;
 
-import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
 import java.io.PrintStream;
