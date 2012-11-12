@@ -1,11 +1,17 @@
 Test-Cases: ${classes;CONCRETE;EXTENDS;junit.framework.TestCase}
 Private-Package: facilis.echo.test
 
--runfw: org.eclipse.osgi;version='3.7.2'
+-runfw: org.apache.felix.framework;version='4.0.3'
 -runee: JavaSE-1.6
 -runvm: -ea
 -runsystempackages: sun.reflect
--runbundles: org.apache.felix.scr,\
-    osgi.cmpn;version=4.3.0,\
+
+
+-runbundles: javax.servlet;version='2.5.0',\
+    osgi.cmpn;version='4.2.0',\
+    org.apache.felix.http.jetty;version='2.2.0',\
+    org.apache.felix.scr;version='1.6.0',\
     facilis.demo.core.api;version=latest,\
-    facilis.demo.core.default;version=latest
+    facilis.demo.core.default;version=latest,\
+    facilis.demo.core.web;version=latest
+Import-Package: *
