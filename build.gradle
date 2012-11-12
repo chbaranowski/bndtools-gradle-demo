@@ -35,6 +35,7 @@ configure(subprojects.findAll {it.name != 'cnf'}) {
         ant.taskdef(resource: 'aQute/bnd/ant/taskdef.properties') {
             classpath {
                 fileset(dir: "${projectDir}/../cnf/plugins/biz.aQute.bnd/", includes: '*.jar')
+                configurations.compile.asPath
             }
         }
         ant.bndprepare(basedir:"${projectDir}", print:'false')
@@ -51,7 +52,7 @@ configure(subprojects.findAll {it.name != 'cnf'}) {
     
     // build a OSGi bundle by using bnd
     task bundle(dependsOn: test) << {
-        ant.bnd(command:'build', exceptions:'true', basedir:"${projectDir}")
+         ant.bnd(command:'build', exceptions:'true', basedir:"${projectDir}")
     }
     
     // before the jar task is invoked the bundle task should create the bundle
@@ -75,7 +76,7 @@ configure(subprojects.findAll {it.name != 'cnf'}) {
     // Run the bundle tests by the bnd ant task (integrated OSGi tests)
     task testBundle(dependsOn: build) << {
         if(project.name.endsWith('.test')) {
-            ant.bnd(command: "test", exceptions:"true", basedir:"${projectDir}")
+            ant.bnd(command: "test", exceptions:true, basedir:"${projectDir}")
         }
         else {
            logger.quiet("Bundle tests are not invoked for project: ${project.name}.")
