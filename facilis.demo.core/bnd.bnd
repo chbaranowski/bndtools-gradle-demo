@@ -1,12 +1,25 @@
 -buildpath: biz.aQute.bnd.annotation;version=1.52.3,\
-    com.google.guava;version=13.0.1
+	com.google.guava;version=13.0.1,\
+	osgi.cmpn;version=4.2.0,\
+	javax.servlet
 
--runfw: org.eclipse.osgi;version='3.7.0'
+-runfw: org.apache.felix.framework;version='4.0.3'
 -runee: JavaSE-1.6
--runproperties: osgi.console=true
 -runrequires: osgi.identity;filter:='(osgi.identity=org.apache.felix.scr)',\
-    osgi.identity;filter:='(&(osgi.identity=osgi.cmpn)(version>=4.2.0))'
--runbundles: org.apache.felix.scr;version='[1.6.0,1.6.1)',\
-    osgi.cmpn;version='[4.2.0,4.2.1)'
+	osgi.identity;filter:='(&(osgi.identity=osgi.cmpn)(version>=4.2.0))',\
+	osgi.identity;filter:='(osgi.identity=org.apache.felix.gogo.command)',\
+	osgi.identity;filter:='(osgi.identity=org.apache.felix.gogo.runtime)',\
+	osgi.identity;filter:='(osgi.identity=org.apache.felix.gogo.shell)',\
+	osgi.identity;filter:='(osgi.identity=org.apache.felix.webconsole)',\
+	osgi.identity;filter:='(osgi.identity=aQute.xray.plugin)'
+-runbundles: javax.servlet;version='[2.5.0,2.5.1)',\
+	org.apache.felix.gogo.command;version='[0.12.0,0.12.1)',\
+	org.apache.felix.http.jetty;version='[2.2.0,2.2.1)',\
+	org.apache.felix.scr;version='[1.6.0,1.6.1)',\
+	org.apache.felix.gogo.shell;version='[0.10.0,0.10.1)',\
+	org.apache.felix.webconsole;version='[3.1.8,3.1.9)',\
+	osgi.cmpn;version='4.2.0',\
+	org.apache.felix.gogo.runtime;version='[0.10.0,0.10.1)',\
+	aQute.xray.plugin;version='[1.0.3,1.0.4)'
 
 -sub: *.bnd
